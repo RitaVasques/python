@@ -111,6 +111,7 @@ details_sales = daily_sales.replace(";,;", ":")
 #Separate each costumer details
 costumers = details_sales.split(",")
 n_costumers = len(costumers)
+print("Today we had ", n_costumers, " costumers in the store.")
 
 #Clean all the "\n"
 costumers_no_newLine = []
@@ -121,14 +122,42 @@ costumer_list = []
 for costumer in costumers_no_newLine:
     costumer_list.append(costumer.split(":"))
 
-#Create a list with costumers names and other for amounts
+#Create a list with costumers
+#Create list with amounts
+#Create list with threads
 names = []
 amounts = []
+threads = []
 for item in costumer_list:
     names.append(item[0].strip())
     amounts.append(item[1].strip())
+    threads.append(item[2].strip())
 
 #Find totalamount of sales for the day
 total = 0
 for amount in amounts:
     total += float(amount[1:])
+
+print("Total amount made today: ", total)
+
+#Separate the sale of several threads
+thread_color_split = []
+for thread in threads:
+    if "&" in thread:
+      new_thread = thread.split("&")
+      for each in new_thread:
+          thread_color_split.append(each)
+    else:
+        thread_color_split.append(thread)
+
+def color_count(color):
+    how_many = thread_color_split.count(color)
+    return how_many
+
+colors = []
+for color in thread_color_split:
+    if color not in colors:
+        colors.append(color)
+
+for color in colors:
+    print("Shop sold {} threads of {} thread today.".format(color_count(color), color))
