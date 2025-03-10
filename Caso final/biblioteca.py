@@ -60,19 +60,18 @@ class Libro:
                 return ()
         return print("ISBN no encontrado")
 
-# Menu de funcionalidades
-print("\n")
-print("Bienvenido al Sistema de Gestión de Biblioteca")
-print("\n")
-print("1. Agegar libro")
-print("2. Prestar libro")
-print("3. Devolver libro")
-print("4. Mostrar libros")
-print("5. Buscar")
-print("6. Salir")
-
 # Loop para usuario
 while True:
+    # Menu de funcionalidades
+    print("\n")
+    print("Bienvenido al Sistema de Gestión de Biblioteca")
+    print("\n")
+    print("1. Agegar libro")
+    print("2. Prestar libro")
+    print("3. Devolver libro")
+    print("4. Mostrar libros")
+    print("5. Buscar")
+    print("6. Salir")
     print("\n")
     opcion = input("Elige una opción:")
 
